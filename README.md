@@ -14,6 +14,21 @@ This project uses the **built-in Wi-Fi chip** of the Raspberry Pi (no external U
 - **System uptime** – Pi uptime displayed at the top
 - **Reboot button** – Reboot the Pi from the web UI (with confirmation)
 
+## Quick Install
+
+Run on a fresh Raspbian (Debian 12) with NetworkManager already present:
+
+```bash
+curl -sL https://raw.githubusercontent.com/lemassykoi/raspap-lite-status/master/install.sh | sudo bash
+```
+
+To customise defaults before installing:
+
+```bash
+curl -sL https://raw.githubusercontent.com/lemassykoi/raspap-lite-status/master/install.sh \
+  | sudo AP_SSID="MyNetwork" AP_PSK="s3cretPass" AP_CHANNEL="11" AP_COUNTRY="US" bash
+```
+
 ## Prerequisites
 
 - Raspberry Pi with built-in Wi-Fi (3B, 3B+, 4, Zero W, etc.)
