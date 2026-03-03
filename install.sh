@@ -91,6 +91,20 @@ rsn_pairwise=CCMP
 EOF
 
 systemctl unmask hostapd >/dev/null 2>&1 || true
+
+# ── 3b. Fix rfkill blocking Wi-Fi on boot ────────────────────────
+info "Fixing rfkill Wi-Fi block…"
+rfkill unblock wifi
+# Prevent systemd-rfkill from restoring a "blocked" state on boot
+systemctl mask systemd-rfkill.service systemd-rfkill.socket >/dev/null 2>&1 || true
+# Belt-and-suspenders: unblock wifi right before hostapd starts
+mkdir -p /etc/systemd/system/hostapd.service.d
+cat > /etc/systemd/system/hostapd.service.d/rfkill-unblock.conf <<'DROPIN'
+[Service]
+ExecStartPre=/usr/sbin/rfkill unblock wifi
+DROPIN
+systemctl daemon-reload
+
 systemctl enable hostapd >/dev/null 2>&1
 systemctl restart hostapd
 info "hostapd started."
