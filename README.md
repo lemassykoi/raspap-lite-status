@@ -39,3 +39,6 @@ Minimal status & settings web UI for a bridged Wi-Fi access point on Raspberry P
 
 ## Tested with
 - Raspberry Pi 3B - Raspbian 12 x64 Lite
+
+## Screenshot
+<img width="1093" height="1365" alt="image" src="https://github.com/user-attachments/assets/aa927b8a-378e-4ecf-8539-1f051c67c125" />
