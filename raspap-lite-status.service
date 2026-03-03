@@ -1,0 +1,14 @@
+[Unit]
+Description=RaspAP Lite Status Web UI
+After=network-online.target hostapd.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/raspap-lite/raspap-lite.env
+ExecStart=/usr/bin/python3 /opt/raspap-lite-status/server.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
