@@ -36,3 +36,6 @@ Minimal status & settings web UI for a bridged Wi-Fi access point on Raspberry P
 - Python 3 (stdlib only, no pip dependencies)
 - `hostapd` configured with `/etc/hostapd/hostapd.conf`
 - Bridge interface `br0`
+
+## Tested with
+- Raspberry Pi 3B - Raspbian 12 x64 Lite
