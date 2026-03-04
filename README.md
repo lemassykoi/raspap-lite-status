@@ -93,6 +93,15 @@ sudo systemctl unmask hostapd
 sudo systemctl enable --now hostapd
 ```
 
+### 4. 2.4 GHz channel planning (important)
+
+When running multiple nearby APs on 2.4 GHz (same SSID/password for roaming), avoid overlapping channels.
+
+- Prefer only channels **1, 6, 11** (20 MHz width).
+- Avoid channels like **2-5** and **7-10** for fixed AP deployments (`channel 5` is a common source of interference).
+- With three APs, assign one per channel: `1 / 6 / 11`.
+- Keep security settings aligned across APs (WPA2-PSK + CCMP) to improve client roaming behavior.
+
 ## Installation
 
 1. Copy `server.py` to `/opt/raspap-lite-status/`:
